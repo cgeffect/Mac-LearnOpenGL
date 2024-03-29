@@ -1,4 +1,4 @@
-# 18 材质
+# 19 漫反射贴图
 
 修改 util/filesystem.h 中 logl_root 的值为工程的根目录
 

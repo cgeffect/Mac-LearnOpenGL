@@ -17,7 +17,11 @@ LearnOpenGL-12 通过键盘输入移动摄像机
 LearnOpenGL-13 通过鼠标输入移动摄像机  
 LearnOpenGL-14 摄像机类  
 LearnOpenGL-15 光照 
-LearnOpenGL-16 漫反射  
+LearnOpenGL-16 漫反射光  
+LearnOpenGL-17 镜面光
+LearnOpenGL-18 材质  
+LearnOpenGL-19 漫反射贴图
+LearnOpenGL-20 镜面贴图
 
 
 

@@ -1,0 +1,9 @@
+libdir=/Users/jason/Downloads/assimp-5.3.1/build/deploy/lib
+includedir=/Users/jason/Downloads/assimp-5.3.1/build/deploy/include
+
+Name: Assimp
+Description: Import various well-known 3D model formats in an uniform manner.
+Version: 5.3.0
+Libs: -L${libdir} -lassimp
+Libs.private:  
+Cflags: -I${includedir}

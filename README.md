@@ -22,6 +22,9 @@ LearnOpenGL-17 镜面光
 LearnOpenGL-18 材质  
 LearnOpenGL-19 漫反射贴图  
 LearnOpenGL-20 镜面贴图  
-LearnOpenGL-21 平行光  
+LearnOpenGL-21 平行光    
+LearnOpenGL-22 点光源   
+LearnOpenGL-23 聚光登    
+LearnOpenGL-24 加载模型      
 
 

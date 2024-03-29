@@ -41,8 +41,9 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     // 使用的是核心模式(Core-profile)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+#ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
-
+#endif
     // 参数依次为：宽、高、窗口的名称,显示器用于全屏模式，设为NULL是为窗口
     // 窗口的上下文为共享资源，NULL为不共享资源
     GLFWwindow* window = glfwCreateWindow(800, 600, "FirstWindow", NULL, NULL);

@@ -16,13 +16,15 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
-const char *vertexShaderSource = "#version 330 core\n"
+const char *vertexShaderSource = 
+    "#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "void main()\n"
     "{\n"
     "   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n"
     "}\0";
-const char *fragmentShaderSource = "#version 330 core\n"
+const char *fragmentShaderSource = 
+    "#version 330 core\n"
     "out vec4 FragColor;\n"
     "void main()\n"
     "{\n"
@@ -31,8 +33,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 int main()
 {
-    // glfw: initialize and configure
-    // ------------------------------
+    // gl环境初始化
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -42,8 +43,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-    // glfw window creation
-    // --------------------
+    // 创建窗口
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (window == NULL)
     {
@@ -51,10 +51,12 @@ int main()
         glfwTerminate();
         return -1;
     }
+    
+    // 设置上下文,
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
+    // glad: 加载opengl函数指针
     // ---------------------------------------
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -63,7 +65,6 @@ int main()
     }
 
 
-    // build and compile our shader program
     // ------------------------------------
     // vertex shader
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -103,14 +104,16 @@ int main()
     glDeleteShader(vertexShader);
     glDeleteShader(fragmentShader);
 
-    // set up vertex data (and buffer(s)) and configure vertex attributes
+
     // ------------------------------------------------------------------
+    // 顶点数据
     float vertices[] = {
         -0.5f, -0.5f, 0.0f, // left
          0.5f, -0.5f, 0.0f, // right
          0.0f,  0.5f, 0.0f  // top
     };
 
+    // OpenGL的核心模式要求我们使用VAO，所以它知道该如何处理我们的顶点输入。如果我们绑定VAO失败，OpenGL会拒绝绘制任何东西。
     unsigned int VBO, VAO;
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -123,16 +126,15 @@ int main()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    // note that this is allowed, the call to glVertexAttribPointer registered VBO as the vertex attribute's bound vertex buffer object so afterwards we can safely unbind
+    // 已经把数据VBO的数据绑定到VAO上了, 此时可以解绑VBO
     glBindBuffer(GL_ARRAY_BUFFER, 0);
 
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
+    // 解绑VAO, 注意解绑VBO和VAO都不是必须的, 但是前提条件是下一次别人使用VBO/VAO的时候, 他必须先调用glBindVertexArray(VAO), 为了安全起见, 也可以每次用完之后都解绑
     glBindVertexArray(0);
 
 
-    // uncomment this call to draw in wireframe polygons.
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    // 设置绘制模式, 默认是填充, 下面这个代表是画线
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     // render loop
     // -----------

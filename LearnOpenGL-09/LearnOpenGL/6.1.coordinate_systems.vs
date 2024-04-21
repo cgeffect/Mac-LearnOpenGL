@@ -10,6 +10,7 @@ uniform mat4 projection;
 
 void main()
 {
+    // 注意乘法要从右向左读
     gl_Position = projection * view * model * vec4(aPos, 1.0);
     TexCoord = vec2(aTexCoord.x, aTexCoord.y);
 }

@@ -110,7 +110,7 @@ int main()
         -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
     };
-    // world space positions of our cubes
+    // 指定每一个立方体在世界空间坐标系中的位移
     glm::vec3 cubePositions[] = {
         glm::vec3( 0.0f,  0.0f,  0.0f),
         glm::vec3( 2.0f,  5.0f, -15.0f),
@@ -225,22 +225,27 @@ int main()
         // activate shader
         ourShader.use();
 
-        // camera/view transformation
-        glm::mat4 view = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        // 定义一个摄像机
+        glm::mat4 view = glm::mat4(1.0f);
         float radius = 10.0f;
         float camX = static_cast<float>(sin(glfwGetTime()) * radius);
         float camZ = static_cast<float>(cos(glfwGetTime()) * radius);
-        view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        // 参数一: 摄像机位置
+        // 参数二: 目标位置
+        // 参数三: 世界空间中的上向量的向量
+        view = glm::lookAt(glm::vec3(camX, 0.0f, camZ), // 相当于是绕着Y轴旋转
+                           glm::vec3(0.0f, 0.0f, 0.0f),
+                           glm::vec3(0.0f, 1.0f, 0.0f));
         ourShader.setMat4("view", view);
 
-        // render boxes
+        // 渲染立方体, 这里是在一次绘制中, glDrawArrays10次, 每一次绘制都不会清空FBO, 所以, 下一次的绘制是在上一次的绘制基础之上
         glBindVertexArray(VAO);
         for (unsigned int i = 0; i < 10; i++)
         {
-            // calculate the model matrix for each object and pass it to shader before drawing
             glm::mat4 model = glm::mat4(1.0f);
-            model = glm::translate(model, cubePositions[i]);
+            model = glm::translate(model, cubePositions[i]); //位移
             float angle = 20.0f * i;
+            // 旋转
             model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
             ourShader.setMat4("model", model);
 

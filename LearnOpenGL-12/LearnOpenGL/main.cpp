@@ -241,6 +241,7 @@ int main()
         ourShader.use();
 
         // camera/view transformation
+        //cameraPos 相机的位置 + cameraFront 指向,
         glm::mat4 view = glm::lookAt(cameraPos, cameraPos + cameraFront, cameraUp);
         ourShader.setMat4("view", view);
 
@@ -288,6 +289,7 @@ void processInput(GLFWwindow *window)
     if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
         cameraPos -= cameraSpeed * cameraFront;
     if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+        // 叉乘的结果就是通过两个向量, 计算出一个正交与两个向量的第三个向量, 摄像机坐标系是一个正交的向量,通过cameraFront和cameraUp, 获取的是向量的位置的变化, 拿原来的位置, 减去变化的位置,
         cameraPos -= glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;
     if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
         cameraPos += glm::normalize(glm::cross(cameraFront, cameraUp)) * cameraSpeed;

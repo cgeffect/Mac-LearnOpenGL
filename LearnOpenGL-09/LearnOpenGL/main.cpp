@@ -180,15 +180,17 @@ int main()
         glm::mat4 view          = glm::mat4(1.0f);
         glm::mat4 projection    = glm::mat4(1.0f);
         model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+        // 注意，我们将矩阵向我们要进行移动场景的反方向移动。
+        view  = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f)); // 把物体向后移, 相当于是把摄像机向前移动, 朝向屏幕是z轴的负方向
+        // 最后我们需要做的是定义一个投影矩阵。我们希望在场景中使用透视投影，所以像这样声明一个投影矩阵：
         projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
-        // retrieve the matrix uniform locations
+        // 获取矩阵的uniform location
         unsigned int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         unsigned int viewLoc  = glGetUniformLocation(ourShader.ID, "view");
-        // pass them to the shaders (3 different ways)
+        // 通过三种不同的代码写法把矩阵传递到shader中,
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
         glUniformMatrix4fv(viewLoc, 1, GL_FALSE, &view[0][0]);
-        // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+        //注意:目前我们在每一帧设置投影矩阵，但是由于投影矩阵很少改变，所以最好的做法是只在主循环外部设置一次。
         ourShader.setMat4("projection", projection);
 
         // render container

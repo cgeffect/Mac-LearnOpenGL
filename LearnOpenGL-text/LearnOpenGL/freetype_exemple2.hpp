@@ -356,7 +356,7 @@ void WriteGlyphAsTGA(FT_Library &library,
     }
 }
 
-int main_freetype() {
+int freetype_exemple2() {
 
     std::string font_name = FileSystem::getPath("resources/fonts/Antonio-Bold.ttf");
     const std::string &fileName = FileSystem::getPath("LearnOpenGL-text/LearnOpenGL/dump.rgb");

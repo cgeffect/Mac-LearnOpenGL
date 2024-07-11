@@ -22,6 +22,7 @@
 		96F1D5FC2BC27DD5003CF2F6 /* libfreetype.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96F1D5BC2BC27DD5003CF2F6 /* libfreetype.a */; };
 		96F1D5FE2BC28737003CF2F6 /* freetype_exemple2.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 96F1D5FD2BC28737003CF2F6 /* freetype_exemple2.hpp */; };
 		96F1D6002BC2894D003CF2F6 /* TextRender.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 96F1D5FF2BC2894D003CF2F6 /* TextRender.hpp */; };
+		96F1D6B02BC39034003CF2F6 /* freetype_example1.hpp in Sources */ = {isa = PBXBuildFile; fileRef = 96F1D6AF2BC39034003CF2F6 /* freetype_example1.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -805,6 +806,7 @@
 		96F1D5F92BC27DD5003CF2F6 /* ft2build.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ft2build.h; sourceTree = "<group>"; };
 		96F1D5FD2BC28737003CF2F6 /* freetype_exemple2.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = freetype_exemple2.hpp; sourceTree = "<group>"; };
 		96F1D5FF2BC2894D003CF2F6 /* TextRender.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextRender.hpp; sourceTree = "<group>"; };
+		96F1D6AF2BC39034003CF2F6 /* freetype_example1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = freetype_example1.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -854,6 +856,7 @@
 				96AD01F42BB54AFF00DC2485 /* main.cpp */,
 				96F1D5FF2BC2894D003CF2F6 /* TextRender.hpp */,
 				96F1D5FD2BC28737003CF2F6 /* freetype_exemple2.hpp */,
+				96F1D6AF2BC39034003CF2F6 /* freetype_example1.hpp */,
 				96AD02DD2BB54B3900DC2485 /* third */,
 				96AD03012BB563BA00DC2485 /* util */,
 			);
@@ -2006,6 +2009,7 @@
 				96AD01F52BB54AFF00DC2485 /* main.cpp in Sources */,
 				96F1D6002BC2894D003CF2F6 /* TextRender.hpp in Sources */,
 				96F1D5FE2BC28737003CF2F6 /* freetype_exemple2.hpp in Sources */,
+				96F1D6B02BC39034003CF2F6 /* freetype_example1.hpp in Sources */,
 				96AD02DE2BB54B3900DC2485 /* glad.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2144,7 +2148,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LearnOpenGL/third/glfw-3.4.bin.MACOS/lib-universal",
 					"$(PROJECT_DIR)/LearnOpenGL/third/glm/lib",
-					"$(PROJECT_DIR)/LearnOpenGL/third/assimp/5.2.5/lib",
 					"$(PROJECT_DIR)/LearnOpenGL/third/assimp/lib",
 					"$(PROJECT_DIR)/LearnOpenGL/third/freetype-2.13.2/lib",
 				);
@@ -2171,7 +2174,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/LearnOpenGL/third/glfw-3.4.bin.MACOS/lib-universal",
 					"$(PROJECT_DIR)/LearnOpenGL/third/glm/lib",
-					"$(PROJECT_DIR)/LearnOpenGL/third/assimp/5.2.5/lib",
 					"$(PROJECT_DIR)/LearnOpenGL/third/assimp/lib",
 					"$(PROJECT_DIR)/LearnOpenGL/third/freetype-2.13.2/lib",
 				);

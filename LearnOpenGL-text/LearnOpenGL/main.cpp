@@ -7,9 +7,11 @@
 
 #include "TextRender.hpp"
 #include "freetype_exemple2.hpp"
+#include "freetype_example1.hpp"
 
 int main() {
 //    main_text();
-    main_freetype();
+//    freetype_exemple2();
+    freetype_example1();
     return 0;
 }

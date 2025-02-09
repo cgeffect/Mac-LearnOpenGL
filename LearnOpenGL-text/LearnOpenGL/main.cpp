@@ -10,8 +10,8 @@
 #include "freetype_example1.hpp"
 
 int main() {
-//    main_text();
+    main_text();
 //    freetype_exemple2();
-    freetype_example1();
+//    freetype_example1();
     return 0;
 }
